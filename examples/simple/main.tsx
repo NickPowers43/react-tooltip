@@ -29,15 +29,15 @@ function App() {
         </div>
       }
       <div className="anchor-container">
-        <AnchorItem name="Anchor" tipText="My Tooltip" />
+        <AnchorItem name="Anchor" tipText="My ToolTip" />
       </div>
       <div className="anchor-container scrollable">
         <ul className="anchor-list">
-          <AnchorItem name="A" tipText="My Tooltip" />
-          <AnchorItem name="B" tipText="My Tooltip" />
-          <AnchorItem name="C" tipText="My Tooltip" />
-          <AnchorItem name="D" tipText="My Tooltip" />
-          <AnchorItem name="E" tipText="My Tooltip" />
+          <AnchorItem name="A" tipText="My ToolTip A" />
+          <AnchorItem name="B" tipText="My ToolTip B" />
+          <AnchorItem name="C" tipText="My ToolTip C" />
+          <AnchorItem name="D" tipText="My ToolTip D" />
+          <AnchorItem name="E" tipText="My ToolTip E" />
         </ul>
       </div>
     </React.Fragment>

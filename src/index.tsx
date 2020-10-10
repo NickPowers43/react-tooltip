@@ -1,7 +1,14 @@
 
 import * as React from 'react';
 
-export function ToolTip(props: {anchorElement: HTMLElement, title: string, className: string}) {
+
+export interface ToolTipProps {
+  anchorElement: HTMLElement;
+  title: string;
+  className: string;
+}
+
+export function ToolTip(props: ToolTipProps) {
   
   const { anchorElement, title, ...divProps } = props;
 
