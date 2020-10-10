@@ -1,0 +1,30 @@
+{
+  "name": "react-tooltip",
+  "version": "1.0.0",
+  "description": "A tooltip for React applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:example": "webpack --config examples/simple/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickPowers43/react-tooltip.git"
+  },
+  "author": "Nicholas Powers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NickPowers43/react-tooltip/issues"
+  },
+  "homepage": "https://github.com/NickPowers43/react-tooltip#readme",
+  "devDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "typescript": "3.4.3",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12",
+    "ts-loader": "8.0.4",
+    "@types/react": "16.8.24",
+    "@types/react-dom": "16.9.8"
+  }
+}
