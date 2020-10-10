@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-export function ToolTip(props: React.PropsWithChildren<{anchorElement: HTMLElement}>) {
+export function ToolTip(props: {anchorElement: HTMLElement, title: string}) {
   
   const { anchorElement } = props;
   
@@ -38,7 +38,7 @@ export function ToolTip(props: React.PropsWithChildren<{anchorElement: HTMLEleme
       return null;
     
     return (
-      <div className="tooltip" style={{left: x, top: verticalCenter + 'px'}}>Tooltip</div>
+      <div className="tooltip" style={{left: x, top: verticalCenter + 'px'}}>{props.title}</div>
     );
   }
   
