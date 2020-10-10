@@ -1,27 +1,40 @@
 
 import * as React from 'react';
 
-export function ToolTip(props: {anchorElement: HTMLElement, title: string}) {
+export function ToolTip(props: {anchorElement: HTMLElement, title: string, className: string}) {
   
-  const { anchorElement } = props;
-  
-  const [ anchor, setAnchor ] = React.useState<HTMLElement>(null);
+  const { anchorElement, title, ...divProps } = props;
+
   const [ show, setShow ] = React.useState(false);
 
-  // Effect for binding mouse enter/leave event listeners
+  // Effect for binding mouse enter/leave and scroll event listeners
   React.useEffect(
     () => {
-      if (!anchorElement)
+      if (!anchorElement) {
         return;
+      }
 
-      const enterListener = e => setShow(true);
+      const scrollListener = e => {
+        setShow(false);
+      }
+
+      const enterListener = e => {
+        // Check for occluding elements
+        const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
+        if(anchorElement !== hoveredElement && !anchorElement.contains(hoveredElement)) {
+          return;
+        }
+        setShow(true);
+      };
       const leaveListener = e => setShow(false);
 
+      document.addEventListener('scroll', scrollListener, true);
       anchorElement.addEventListener('mouseenter', enterListener);
       anchorElement.addEventListener('mouseleave', leaveListener);
 
       // clean up event listeners
       return () => {
+        document.removeEventListener('scroll', scrollListener);
         anchorElement.removeEventListener('mouseenter', enterListener);
         anchorElement.removeEventListener('mouseleave', leaveListener);
       }
@@ -29,16 +42,13 @@ export function ToolTip(props: {anchorElement: HTMLElement, title: string}) {
     [anchorElement]
   );
   
-  if (anchorElement) {
+  if (anchorElement && show) {
     const bounds = anchorElement.getBoundingClientRect();
     const verticalCenter = (bounds.top + bounds.bottom) / 2;
-    const x = bounds.right + 5;
-    
-    if (!show)
-      return null;
+    const x = bounds.right;
     
     return (
-      <div className="tooltip" style={{left: x, top: verticalCenter + 'px'}}>{props.title}</div>
+      <div {...divProps} style={{left: x, top: verticalCenter, transform: 'translate(0, -50%)'}}>{title}</div>
     );
   }
   

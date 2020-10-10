@@ -1,19 +1,90 @@
-.anchor-container {
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  background-color: grey;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   place-items: center;
   height: 100vh;
   width: 100vw;
 }
 
+.anchor-container {
+  color: white;
+  border: white solid 2px;
+  background-color: darkgrey;
+  display: flex;
+  align-items: flex-start;
+  place-items: center;
+  overflow: hidden;
+  max-height: 160px;
+  min-width: 200px;
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+.anchor-list {
+  list-style-type: none;
+  flex: auto;
+  /* display: flex;
+  justify-content: flex-start;
+  flex-direction: column; */
+  padding: 0;
+  margin: auto;
+}
+/* .anchor-list .anchor {
+  margin-top: 10px;
+} */
+/* .anchor-list .anchor:nth-child(1) {
+  margin-top: 0;
+} */
+
 .anchor {
-  border: black solid 1px;
-  position: relative;
+  color: white;
+  border: white solid 2px;
+  background-color: grey;
   text-align: center;
-  width: 200px;
+  flex: auto;
+  padding: 20px 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.large-box {
+  /* width: 200px; */
   height:200px;
 }
 
 .tooltip {
+  color: white;
+  border: white solid 2px;
+  background-color: darkgrey;
   position: fixed;
-  border: blue solid 1px;
+  padding: 10px;
+  margin-left: 8px;
+}
+
+.modal {
+  background-color: white;
+  position: fixed;
+  height: 80vh;
+  width: 80vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  opacity: 50%;
+}
+
+.modal-button {
+  position: fixed;
+  left: 20px;
+  top: 20px;
 }

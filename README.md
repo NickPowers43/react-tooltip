@@ -6,3 +6,4 @@ A tooltip for React applications
 
 ## Testing
 `npm run build:example`
+Serve contents of `examples/simple`
